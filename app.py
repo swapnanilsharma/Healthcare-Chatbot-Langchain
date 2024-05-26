@@ -1,7 +1,6 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request # type: ignore
 from src.helper import download_hugging_face_embeddings
 from langchain_core.prompts.prompt import PromptTemplate
-from langchain_community.llms import CTransformers
 from langchain.chains import RetrievalQA
 from dotenv import load_dotenv
 from src.prompt import *
@@ -28,17 +27,13 @@ PROMPT = PromptTemplate(
 
 chain_type_kwargs = {"prompt": PROMPT}
 
-llm = Ollama(model="llama2", temperature=0.8, num_predict=512)
-
-vectorstore = PineconeVectorStore.from_existing_index(
-    index_name=index_name, embedding=embeddings
-)
+llm = Ollama(model="llama3", temperature=0.8, num_predict=512)
 
 docsearch = PineconeVectorStore.from_existing_index(
     index_name=index_name, embedding=embeddings, text_key="text"
 )
 
-retriever = docsearch.as_retriever()
+retriever = docsearch.as_retriever(search_kwargs={'k': 5})
 
 
 qa = RetrievalQA.from_chain_type(
