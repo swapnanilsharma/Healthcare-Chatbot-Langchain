@@ -62,7 +62,7 @@ open up localhost:
 - Python
 - LangChain
 - Flask
-- Meta Llama2
+- Meta Llama3
 - Pinecone
 
 
