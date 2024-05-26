@@ -6,7 +6,7 @@
 Clone the repository
 
 ```bash
-Project repo: https://github.com/
+git clone https://github.com/swapnanilsharma/Healthcare-Chatbot-Langchain.git
 ```
 
 ### STEP 01- Create a conda environment after opening the repository
@@ -29,20 +29,16 @@ pip install -r requirements.txt
 
 ```ini
 PINECONE_API_KEY = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-PINECONE_API_ENV = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 ```
 
 
-### Download the quantize model from the link provided in model folder & keep the model in the model directory:
+### Download and Install Ollama and download Llama3 model inside Ollama(https://ollama.com/):
 
 ```ini
-## Download the Llama 2 Model:
+## Download the Llama 3 Model:
 
-llama-2-7b-chat.ggmlv3.q4_0.bin
+ollama run llama3
 
-
-## From the following link:
-https://huggingface.co/TheBloke/Llama-2-7B-Chat-GGML/tree/main
 ```
 
 ```bash
